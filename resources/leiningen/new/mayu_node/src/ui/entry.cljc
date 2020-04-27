@@ -6,7 +6,7 @@
             [router :as r]))
 
 (defui page []
-  {:keys [id]} <- (dom/envs ::r/route)
+  {{:keys [id]} :path-params} <- (dom/envs ::r/route)
   <[h2 (str "Page " id)]
   <[a {:href (r/url ::r/home)} "Home"])
 

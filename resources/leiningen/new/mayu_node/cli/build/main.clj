@@ -20,5 +20,4 @@
         css-name (str "site." css-hash ".css")]
     (spit (str "./dist/" css-name) css)
     (spit "./dist/assets.edn"
-          (pr-str (update assets 0 #(merge %1 {:css-name css-name})))))
-  (sh! "cp ./public/* ./dist/"))
+          (pr-str (update assets 0 #(merge %1 {:css-name css-name}))))))

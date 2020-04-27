@@ -15,8 +15,10 @@
     <[h1 "Home"]
     <[ul $=
       <[li $=
-        <[a {:href (r/url ::r/page {:id 1})} "Page 1"]
-        <[a {:href (r/url ::r/page {:id 2})} "Page 2"]
+        <[a {:href (r/url ::r/page {:id 1})} "Page 1"]]
+      <[li $=
+        <[a {:href (r/url ::r/page {:id 2})} "Page 2"]]
+      <[li $=
         <[a {:href (r/url ::r/page {:id 3})} "Page 3"]]]])
 
 (defui root []

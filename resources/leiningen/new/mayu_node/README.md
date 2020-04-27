@@ -7,6 +7,7 @@
 
 # Testing
 1. `yarn test`
+2. open [http://localhost:8021](http://localhost:8021)
 
 # Production Build
 1. `yarn build`

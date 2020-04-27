@@ -1,0 +1,33 @@
+{:source-paths ["src" "cli"]
+ :dependencies [[mayu "0.1.12"]
+                ^:dev [lambdaisland/deep-diff2 "2.0.0-84"]]
+ :open-file-command ["subl"
+                     ["%s:%s:%s" :file :line :column]]
+ :dev-http {7000 "target"}
+ :builds {:test {:target :browser-test
+                 :test-dir "resources/public/js/test"
+                 :ns-regexp "^-test"
+                 :compiler-options {:warnings-as-errors #{:undeclared-var}}
+                 :devtools {:http-port 8021
+                            :http-root "resources/public/js/test"
+                            :ignore-warnings true
+                            :hud #{:errors :progress}}}
+          :browser {:output-dir "target/"
+                    :asset-path "./"
+                    :target :browser
+                    :module-hash-names 8
+                    :modules {:client {:init-fn frontends.browser/main!}}
+                    :compiler-options {:warnings-as-errors #{:undeclared-var}}
+                    :devtools {:after-load frontends.browser/reload!
+                               :ignore-warnings true
+                               :hud #{:errors :progress}}
+                    :release {:output-dir "dist/"}
+                    :build-options {:manifest-name "assets.edn"}}
+          :server {:target :node-script
+                   :output-to "target/server.js"
+                   :main server/main!
+                   :compiler-options {:warnings-as-errors #{:undeclared-var}}
+                   :devtools {:after-load server/reload!
+                              :ignore-warnings true}
+                   :release {:output-to "target/server.js"}}}}}
+

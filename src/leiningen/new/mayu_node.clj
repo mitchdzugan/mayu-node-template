@@ -11,7 +11,7 @@
               :sanitized (name-to-path name)}]
     (main/info "Generating fresh 'lein new' mayu-node project.")
     (->files data
-             [".gitignore" (render ".gitignore" data)]
+             [".gitignore" (render "gitignore" data)]
              ["README.md" (render "README.md" data)]
              ["package.json" (render "package.json" data)]
              ["project.clj" (render "project.clj" data)]

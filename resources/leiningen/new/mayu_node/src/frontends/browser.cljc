@@ -12,7 +12,9 @@
 
 (defn mount-root []
   (let [{:keys [off]}
-        (attach/attach "app" {::r/s-route @a-s-route} ui.entry/root)]
+        (attach/attach (js/document.getElementById "app")
+                       {::r/s-route @a-s-route}
+                       ui.entry/root)]
     (reset! a-off off)))
 
 (defn main! []
